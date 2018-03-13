@@ -245,11 +245,11 @@
         ANLogInfo(@"adReady");
         if(paramsDictionary.count > 0){
             self.creativeURL = (NSString *)[paramsDictionary objectForKey:@"creativeUrl"];
-            NSNumber *duration = [paramsDictionary objectForKey:@"duration"];
             self.vastURLContent = (NSString *)[paramsDictionary objectForKey:@"vastCreativeUrl"];
             self.vastXMLContent = (NSString *)[paramsDictionary objectForKey:@"vastXML"];
+            const int duration = [[paramsDictionary objectForKey:@"duration"] intValue];
             if(duration > 0){
-                self.videoDuration = [duration intValue];
+                self.videoDuration = duration;
             }
         }
         if ([self.delegate respondsToSelector:@selector(videoAdReady)]) {
